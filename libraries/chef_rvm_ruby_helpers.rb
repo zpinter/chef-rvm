@@ -48,7 +48,12 @@ class Chef
       # @param [String, #to_s] the RVM Ruby string
       # @return [Boolean] is this Ruby installed?
       def ruby_installed?(rubie)
-        ! installed_rubies.select { |r| r.end_with?(rubie) }.empty?
+        begin
+          ! installed_rubies.select { |r| r.end_with?(rubie) }.empty?
+        rescue
+          #env isn't setup right because rvm/ruby isn't installed
+          return false
+        end
       end
 
       ##
