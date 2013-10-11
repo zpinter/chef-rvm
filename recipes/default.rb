@@ -21,7 +21,7 @@
 
 if defined?(OpsWorks) && defined?(OpsWorks::InternalGems)
   # via http://stackoverflow.com/questions/15420155/amazon-opsworks-custom-cookbook-rvm
-  OpsWorks::InternalGems.internal_gem_package('rvm', :version => node['rvm']['chef_internal_rvm_gem_version'])
+  OpsWorks::InternalGems.internal_gem_package('rvm', :version => node['rvm']['1.11.3.6'])
 else
   chef_gem 'rvm' do
     action :install
